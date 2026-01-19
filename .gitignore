@@ -1,0 +1,13 @@
+
+
+toencrypt/*
+!toencrypt/.gitkeep
+
+private/*.pdf
+!private/*.enc
+
+# Java compiled files (from subject requirement)
+*.class
+
+# Java compilation helper file
+sources.txt
