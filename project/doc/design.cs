@@ -1,4 +1,3 @@
-# Avaj Launcher Class Diagram
 ```mermaid
 
 classDiagram
