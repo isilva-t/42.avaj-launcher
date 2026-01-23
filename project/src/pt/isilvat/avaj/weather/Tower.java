@@ -10,7 +10,7 @@ public class Tower {
     Tower() {
     }
 
-    private List<Flyable> observers;
+    private List<Flyable> observers = new ArrayList<>();
 
     protected void conditionChanged() {
 
