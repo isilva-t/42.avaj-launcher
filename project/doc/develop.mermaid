@@ -1,0 +1,54 @@
+
+classDiagram
+
+    class Tower {    
+        - List<Flyable> observers
+
+        + void register(Flyable* p_flyable)
+        + void unregister(Flyable p_flyable)
+    }
+
+
+
+    class Flyable {
+        abstract void updateConditions()
+    }
+
+    
+    class Aircraft {
+        # long id
+        # String name
+        # Coordinates coordinates
+
+        # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
+    }
+
+    class Coordinates {
+        - int longitude
+        - int latitude
+        - int height
+
+        Coordinates(int p_longitude, int p_latitude, int p_height)
+
+        + int getLongitude()
+        + int getLatitude()
+        + int getHeight()
+    }
+
+    class WeatherProvider {
+        <<singleton>>
+        - string[] weather
+        + string getCurrentWeather(Coordinates p_coordinates)
+    }
+
+    class WeatherTower {
+        + srting getWeather(Coordinates p_coordinates)
+        + void changeWeather()
+    }
+
+
+    Flyable <|.. Aircraft
+    Tower o-- Flyable
+    Aircraft *-- Coordinates
+
+

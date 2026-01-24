@@ -1,4 +1,3 @@
-```mermaid
 
 classDiagram
     class Tower {
@@ -39,7 +38,7 @@ classDiagram
     
     class Flyable {
         <<abstract>>
-        #WeatherTower weatherTower
+        # WeatherTower weatherTower
         +void updateConditions()*
         +registerTower(WeatherTower p_tower)
     }
@@ -71,4 +70,7 @@ classDiagram
     Aircraft <|-- Helicopter
     Aircraft <|-- JetPlane
     Aircraft <|-- Baloon
-```
+
+JetPlane ..> AircraftFactory : <<creates>>  
+AircraftFactory ..> JetPlane : <<creates>>  
+WeatherTower --> WeatherProvider : uses        
