@@ -2,9 +2,9 @@ package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.coordinates.Coordinates;
 
-public class Baloon extends Aircraft {
+public class Balloon extends Aircraft {
 
-    public Baloon (
+    public Balloon (
         long p_id,
         String p_name,
         Coordinates p_coordinates
