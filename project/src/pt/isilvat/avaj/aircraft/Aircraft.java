@@ -2,9 +2,9 @@ package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.aircraft.Flyable;
 import pt.isilvat.avaj.coordinates.Coordinates;
-import pt.isilvat.avaj.weather.WeatherTower
+import pt.isilvat.avaj.weather.WeatherTower;
 
-public abstract class Aircraft extends Flyable {
+public class Aircraft extends Flyable {
 
     protected long id;
     protected String name;
@@ -17,6 +17,10 @@ public abstract class Aircraft extends Flyable {
         this.id = p_id;
         this.name = p_name;
         this.coordinates = p_coordinates;
+    }
+
+    public void updateConditions() {
+        System.out.println("Conditions updated");
     }
 
 
