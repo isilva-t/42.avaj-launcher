@@ -8,9 +8,8 @@ classDiagram
         + void unregister(Flyable p_flyable)
     }
 
-
-
     class Flyable {
+        <<abstract>>
         abstract void updateConditions()
     }
 
@@ -46,9 +45,27 @@ classDiagram
         + void changeWeather()
     }
 
+    class Baloon {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
+    class Helicopter {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
+    class JetPlane {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
 
     Flyable <|.. Aircraft
+    Tower <|-- WeatherTower
     Tower o-- Flyable
+    WeatherTower --o Flyable
     Aircraft *-- Coordinates
+
+    Aircraft <|-- Baloon 
+    Aircraft <|-- Helicopter 
+    Aircraft <|-- JetPlane
 
 
