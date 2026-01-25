@@ -19,9 +19,9 @@ public class Aircraft extends Flyable {
         this.coordinates = p_coordinates;
     }
 
-    public void updateConditions() {
-        System.out.println("Conditions updated");
-    }
+    public void updateConditions() {};
+
+
 
 
 }
