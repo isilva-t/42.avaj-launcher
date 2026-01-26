@@ -4,7 +4,7 @@ import pt.isilvat.avaj.weather.Tower;
 
 public class WeatherTower extends Tower {
 
-    WeatherTower() {
+    public WeatherTower() {
         
     }   
 
@@ -13,6 +13,6 @@ public class WeatherTower extends Tower {
     } 
 
     public void changeWeather() {
-
+      System.out.println("Weather will changed from here.");
     }
 }
