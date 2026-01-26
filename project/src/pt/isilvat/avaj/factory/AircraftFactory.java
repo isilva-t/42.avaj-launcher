@@ -5,24 +5,32 @@ import pt.isilvat.avaj.coordinates.Coordinates;
 
 public class AircraftFactory {
 
+    private static AircraftFactory instance = new AircraftFactory();
+
+    private long id = 0;
     private AircraftFactory() {
     }
 
-    Flyable newAircraft(
+    public static AircraftFactory getInstance() {
+        return instance;
+    }
+
+    public Flyable newAircraft(
         String p_type,
         String p_name,
         Coordinates p_coordinates
         ) {
             try {
-                int id = 0; // must be requested by other class! we need to find who
-
+                if (this.id < 0) {
+                    throw new Exception("Can't register more aircrafts!");
+                } 
                 switch(p_type) {
                     case "Balloon": 
-                        return new Balloon(id, p_name, p_coordinates);
+                        return new Balloon(++this.id, p_name, p_coordinates);
                     case "Helicopter": 
-                        return new Helicopter(id, p_name, p_coordinates);
+                        return new Helicopter(++this.id, p_name, p_coordinates);
                     case "JetPlane": 
-                        return new JetPlane(id, p_name, p_coordinates);
+                        return new JetPlane(++this.id, p_name, p_coordinates);
                     default:
                         throw new Exception("wrong type of aircraft!");
                 }
@@ -31,5 +39,4 @@ public class AircraftFactory {
             }
             return null;
         }
-
 }
