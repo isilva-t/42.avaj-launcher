@@ -1,7 +1,5 @@
 package pt.isilvat.avaj.aircraft;
 
-import pt.isilvat.avaj.coordinates.Coordinates;
-
 public class JetPlane extends Aircraft {
 
     public JetPlane (

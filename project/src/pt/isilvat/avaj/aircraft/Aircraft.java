@@ -1,7 +1,6 @@
 package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.aircraft.Flyable;
-import pt.isilvat.avaj.coordinates.Coordinates;
 import pt.isilvat.avaj.weather.WeatherTower;
 
 public class Aircraft extends Flyable {

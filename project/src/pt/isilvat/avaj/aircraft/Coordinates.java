@@ -1,4 +1,4 @@
-package pt.isilvat.avaj.coordinates;
+package pt.isilvat.avaj.aircraft;
 
 
 public class Coordinates {
