@@ -38,6 +38,7 @@ classDiagram
         <<singleton>>
         - string[] weather
         + string getCurrentWeather(Coordinates p_coordinates)
+        + WeatherProvider getInstance()
     }
 
     class WeatherTower {
@@ -56,6 +57,12 @@ classDiagram
     class JetPlane {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+    }
+
+    class AircraftFactory {
+        <<singleton>>
+        + Flyable newAircraft(string p_type, string p_name, Coordinates p_coordinates)
+        + AircraftFactory getInstance()
     }
 
     Flyable <|.. Aircraft
