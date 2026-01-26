@@ -2,7 +2,7 @@
 classDiagram
 
     class Tower {    
-        - List<Flyable> observers
+        - List<'Flyable'> observers
 
         + void register(Flyable* p_flyable)
         + void unregister(Flyable p_flyable)
@@ -10,7 +10,9 @@ classDiagram
 
     class Flyable {
         <<abstract>>
-        abstract void updateConditions()
+        + abstract void updateConditions()
+        + void registerTower()
+        + void unregisterTower()
     }
 
     
@@ -20,6 +22,7 @@ classDiagram
         # Coordinates coordinates
 
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
+        + checkHeight()
     }
 
     class Coordinates {
