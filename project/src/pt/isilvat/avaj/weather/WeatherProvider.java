@@ -1,6 +1,6 @@
 package pt.isilvat.avaj.weather;
 
-import pt.isilvat.avaj.coordinates.Coordinates;
+import pt.isilvat.avaj.aircraft.Coordinates;
 
 public class WeatherProvider {
 
