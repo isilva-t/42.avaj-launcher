@@ -36,13 +36,9 @@ public class Aircraft extends Flyable {
                 + "(" 
                 + this.id 
                 + ") landing.");
-            this.weatherTower.unregister(this);
+            this.unregisterTower();
         }
     }
 
     public void updateConditions() {};
-
-
-
-
 }
