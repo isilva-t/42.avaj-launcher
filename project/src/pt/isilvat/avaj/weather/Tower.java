@@ -12,18 +12,28 @@ public class Tower {
 
     private List<Flyable> observers = new ArrayList<>();
     private final String name = "Tower Says: ";
+    private final String className = this.getClass().getSimpleName();
     protected void conditionChanged() {
 
     }
 
     public void register(Flyable p_flyable) {
         this.observers.add(p_flyable);
+        System.out.println(
+            this.name
+            + p_flyable.getFullName()
+            + " registered to "
+            + this.className
+        );
     }
-    
+
     public void unregister(Flyable p_flyable) {
         String flyableName = p_flyable.getFullName();
-        String className = this.getClass().getSimpleName();
-        System.out.println(this.name + flyableName + "unregistered from " + className);
+        System.out.println(
+            this.name 
+            + flyableName 
+            + " unregistered from " 
+            + this.className);
         this.observers.remove(p_flyable);
     }
 }
