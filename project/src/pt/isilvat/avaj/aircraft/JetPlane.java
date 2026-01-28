@@ -2,6 +2,10 @@ package pt.isilvat.avaj.aircraft;
 
 public class JetPlane extends Aircraft {
 
+    protected String rainMsg = super.rainMsg + "Fine, we need some washing!";
+    protected String fogMsg = super.fogMsg + "Where are we going?";
+    protected String sunMsg = super.sunMsg + "IIIIIhaaaaaaa!";
+    protected String snowMsg = super.snowMsg + "Keep the power man, we need warmed motors!";
     public JetPlane (
         long p_id,
         String p_name,

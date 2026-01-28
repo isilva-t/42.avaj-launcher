@@ -9,6 +9,11 @@ public class Aircraft extends Flyable {
     protected String name;
     protected Coordinates coordinates;
 
+    protected String rainMsg = "RAIN ☔ ";
+    protected String fogMsg = "FOG 🌫️";
+    protected String sunMsg = "SUN ☀️ ";
+    protected String snowMsg = "SNOW ❄️ ";
+
     protected Aircraft(long p_id,
         String p_name, 
         Coordinates p_coordinates) {
