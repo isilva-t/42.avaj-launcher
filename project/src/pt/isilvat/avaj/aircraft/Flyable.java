@@ -22,5 +22,7 @@ public abstract class Flyable {
             this.weatherTower = null;
         }
     }
+
+    public abstract String getFullName();
 }
 
