@@ -6,6 +6,7 @@ public class Balloon extends Aircraft {
     protected String fogMsg = super.fogMsg + "So much money to see nothing!";
     protected String sunMsg = super.sunMsg + "Let's enjoy the day!";
     protected String snowMsg = super.snowMsg + "Its SNOWing, we're going to die!";
+
     public Balloon (
         long p_id,
         String p_name,
@@ -18,6 +19,20 @@ public class Balloon extends Aircraft {
     }
 
     public void updateConditions() {
+        super.updateConditions();
+    }
+
+    protected void weatherRain() {
+        super.weatherRain();
+    }
+    protected void weatherFog() {
+        super.weatherFog();
+    }
+    protected void weatherSun() {
+        super.weatherSun();
+    }
+    protected void weatherSnow() {
+        super.weatherSnow();
     }
 
 }

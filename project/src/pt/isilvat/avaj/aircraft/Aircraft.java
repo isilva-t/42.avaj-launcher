@@ -28,6 +28,28 @@ public class Aircraft extends Flyable {
             return;
         }
         String weather = this.weatherTower.getWeather(this.coordinates);
+        try {
+            switch(weather) {
+                case "RAIN": 
+                    this.weatherRain();
+                    break;
+                case "FOG":
+                    this.weatherFog();
+                    break;
+                case "SUN":
+                    this.weatherSun();
+                    break;
+                case "SNOW":
+                    this.weatherSnow();
+                    break;
+                default:
+                    throw new Exception("Invalid weather.");
+            }
+            this.checkHeight();
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     };
 
     public String getFullName() {
@@ -51,5 +73,30 @@ public class Aircraft extends Flyable {
             System.out.println(this.getFullName() + " landing.");
             this.unregisterTower();
         }
+    }
+
+    protected void weatherRain() {
+        System.out.println(
+            this.getFullName()
+            + this.rainMsg
+        );
+    }
+    protected void weatherFog() {
+        System.out.println(
+            this.getFullName()
+            + this.fogMsg
+        );
+    }
+    protected void weatherSun() {
+        System.out.println(
+            this.getFullName()
+            + this.sunMsg
+        );
+    }
+    protected void weatherSnow() {
+        System.out.println(
+            this.getFullName()
+            + this.snowMsg
+        );
     }
 }

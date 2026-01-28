@@ -6,6 +6,7 @@ public class Helicopter extends Aircraft {
     protected String fogMsg = super.fogMsg + "It's outside, not our windows messed up!";
     protected String sunMsg = super.sunMsg + "Yay, enjoy the ride!";
     protected String snowMsg = super.snowMsg + "Keep up power! Keep it warm!";
+
     public Helicopter (
         long p_id,
         String p_name,
@@ -20,4 +21,16 @@ public class Helicopter extends Aircraft {
     public void updateConditions() {
     }
 
+    protected void weatherRain() {
+        super.weatherRain();
+    }
+    protected void weatherFog() {
+        super.weatherFog();
+    }
+    protected void weatherSun() {
+        super.weatherSun();
+    }
+    protected void weatherSnow() {
+        super.weatherSnow();
+    }
 }
