@@ -9,9 +9,8 @@ public class WeatherTower extends Tower {
     }   
 
     public String getWeather(Coordinates p_coordinates) {
-
+      
       WeatherProvider provider = WeatherProvider.getInstance();
-
       String weather = provider.getCurrentWeather(p_coordinates);
       
       return weather; 
