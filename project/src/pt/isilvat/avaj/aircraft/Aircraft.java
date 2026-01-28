@@ -18,6 +18,20 @@ public class Aircraft extends Flyable {
         this.coordinates = p_coordinates;
     }
 
+    public void updateConditions() {
+        if (this.weatherTower == null) {
+            return;
+        }
+        String weather = this.weatherTower.getWeather(this.coordinates);
+    };
+
+    public String getFullName() {
+        String className = this.getClass().getSimpleName();
+        String nameAndId = "#" + this.name + "(" + this.id + ")";
+        String fullName = className + nameAndId;
+        return fullName;
+    }
+
     protected void checkHeight() {
         int height = this.coordinates.getHeight();
         if (height > 100) {
@@ -32,19 +46,5 @@ public class Aircraft extends Flyable {
             System.out.println(this.getFullName() + " landing.");
             this.unregisterTower();
         }
-    }
-
-    public void updateConditions() {
-        if (this.weatherTower == null) {
-            return;
-        }
-        String weather = this.weatherTower.getWeather(this.coordinates);
-    };
-
-    public String getFullName() {
-        String className = this.getClass().getSimpleName();
-        String nameAndId = "#" + this.name + "(" + this.id + ")";
-        String fullName = className + nameAndId;
-        return fullName;
     }
 }
