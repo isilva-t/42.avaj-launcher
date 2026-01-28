@@ -4,6 +4,7 @@ import pt.isilvat.avaj.aircraft.Coordinates;
 
 public class WeatherProvider {
 
+    int cur = 0;
     private static WeatherProvider instance = new WeatherProvider();
     private String[] weather = {"RAIN", "FOG", "SUN", "SNOW"};
 
@@ -15,7 +16,9 @@ public class WeatherProvider {
     }
 
     public String getCurrentWeather(Coordinates p_coordinates) {
-        // needs logic here to generate correct weather
-        return weather[0];
+        if (this.cur > 3) {
+            this.cur = 0;
+        }
+        return(weather[cur++]);
     }
 }

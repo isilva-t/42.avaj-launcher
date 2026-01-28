@@ -1,6 +1,6 @@
 package pt.isilvat.avaj.weather;
 
-import pt.isilvat.avaj.weather.Tower;
+import pt.isilvat.avaj.aircraft.Coordinates;
 
 public class WeatherTower extends Tower {
 
@@ -8,8 +8,13 @@ public class WeatherTower extends Tower {
         
     }   
 
-    public String getWeather() {
-      return "" ; 
+    public String getWeather(Coordinates p_coordinates) {
+
+      WeatherProvider provider = WeatherProvider.getInstance();
+
+      String weather = provider.getCurrentWeather(p_coordinates);
+      
+      return weather; 
     } 
 
     public void changeWeather() {

@@ -40,5 +40,10 @@ public class Aircraft extends Flyable {
         }
     }
 
-    public void updateConditions() {};
+    public void updateConditions() {
+        if (this.weatherTower == null) {
+            return;
+        }
+        String weather = this.weatherTower.getWeather(this.coordinates);
+    };
 }
