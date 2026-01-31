@@ -4,6 +4,8 @@
 
 A Java aircraft weather simulation program implementing core OOP design patterns (Observer, Singleton, Factory).
 
+![airport](project/doc/tower.jpg)
+
 ## About
 
 This project simulates aircraft behavior under changing weather conditions. Aircraft register with a weather tower and respond differently to weather changes based on their type (Helicopter, JetPlane, Balloon).
