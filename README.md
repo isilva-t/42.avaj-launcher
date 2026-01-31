@@ -4,7 +4,7 @@
 
 A Java aircraft weather simulation program implementing core OOP design patterns (Observer, Singleton, Factory).
 
-![airport](project/doc/tower.jpg)
+![airport](project/doc/avaj.jpg)
 
 ## About
 
