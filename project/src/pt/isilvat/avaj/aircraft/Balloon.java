@@ -25,14 +25,16 @@ public class Balloon extends Aircraft {
     protected void weatherRain() {
         super.weatherRain();
     }
+
     protected void weatherFog() {
         super.weatherFog();
     }
+
     protected void weatherSun() {
         super.weatherSun();
     }
+
     protected void weatherSnow() {
         super.weatherSnow();
     }
-
 }
