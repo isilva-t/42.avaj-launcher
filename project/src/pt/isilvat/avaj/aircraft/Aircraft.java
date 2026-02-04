@@ -95,6 +95,10 @@ public class Aircraft extends Flyable {
         return textCoordinates;
     }
 
+    protected void printChildMessage(String message) {
+        System.out.println(message + getStringCoordinates());
+    }
+
     protected void weatherRain() {
         System.out.print(
             this.getFullName()
