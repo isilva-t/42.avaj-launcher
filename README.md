@@ -18,6 +18,88 @@ This project simulates aircraft behavior under changing weather conditions. Airc
 - Aircraft land when reaching height 0
 - Outputs simulation log to `simulation.txt`
 
+```mermaid
+
+classDiagram
+
+    class Tower {    
+        - List<'Flyable'> observers
+
+        + void register(Flyable* p_flyable)
+        + void unregister(Flyable p_flyable)
+    }
+
+    class Flyable {
+        <<abstract>>
+        + abstract void updateConditions()
+        + void registerTower()
+        + void unregisterTower()
+    }
+
+    
+    class Aircraft {
+        # long id
+        # String name
+        # Coordinates coordinates
+
+        # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
+        + checkHeight()
+    }
+
+    class Coordinates {
+        - int longitude
+        - int latitude
+        - int height
+
+        Coordinates(int p_longitude, int p_latitude, int p_height)
+
+        + int getLongitude()
+        + int getLatitude()
+        + int getHeight()
+    }
+
+    class WeatherProvider {
+        <<singleton>>
+        - string[] weather
+        + string getCurrentWeather(Coordinates p_coordinates)
+        + WeatherProvider getInstance()
+    }
+
+    class WeatherTower {
+        + srting getWeather(Coordinates p_coordinates)
+        + void changeWeather()
+    }
+
+    class Baloon {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
+    class Helicopter {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
+    class JetPlane {
+        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + void updateConditions()
+    }
+
+    class AircraftFactory {
+        <<singleton>>
+        + Flyable newAircraft(string p_type, string p_name, Coordinates p_coordinates)
+        + AircraftFactory getInstance()
+    }
+
+    Flyable <|.. Aircraft
+    Tower <|-- WeatherTower
+    Tower o-- Flyable
+    WeatherTower --o Flyable
+    Aircraft *-- Coordinates
+
+    Aircraft <|-- Baloon 
+    Aircraft <|-- Helicopter 
+    Aircraft <|-- JetPlane
+```
+
 ## Requirements
 
 - Java 17 LTS
