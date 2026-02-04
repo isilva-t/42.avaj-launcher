@@ -87,6 +87,14 @@ public class Aircraft extends Flyable {
         coordinates = newCoordinates;
     }
 
+    protected String getStringCoordinates() {
+        String textCoordinates = 
+        " LON: " + coordinates.getLongitude() 
+        + ", LAT: " + coordinates.getLatitude()
+        + ", H: " + coordinates.getHeight();
+        return textCoordinates;
+    }
+
     protected void weatherRain() {
         System.out.print(
             this.getFullName()
