@@ -25,7 +25,7 @@ public class AircraftFactory {
                 } 
                 switch(p_type) {
                     case "Balloon": 
-                        return new Balloon(++this.id, p_name, p_coordinates);
+                        return new Baloon(++this.id, p_name, p_coordinates);
                     case "Helicopter": 
                         return new Helicopter(++this.id, p_name, p_coordinates);
                     case "JetPlane": 

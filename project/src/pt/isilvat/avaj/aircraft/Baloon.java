@@ -1,13 +1,13 @@
 package pt.isilvat.avaj.aircraft;
 
-public class Balloon extends Aircraft {
+public class Baloon extends Aircraft {
 
     protected String rainMsg = "Our box it's floded!";
     protected String fogMsg = "So much money to see nothing!";
     protected String sunMsg = "Let's enjoy the day!";
     protected String snowMsg = "Its SNOWing, we're going to die!";
 
-    public Balloon (
+    public Baloon (
         long p_id,
         String p_name,
         Coordinates p_coordinates
