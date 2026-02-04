@@ -19,6 +19,7 @@ public class Helicopter extends Aircraft {
     }
 
     public void updateConditions() {
+        super.updateConditions();
     }
 
     protected void weatherRain() {
