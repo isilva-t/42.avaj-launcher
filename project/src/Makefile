@@ -8,3 +8,5 @@ run:
 clean:
 	rm -f sources.txt
 	find . -name "*.class" -delete
+
+q:	all run clean
