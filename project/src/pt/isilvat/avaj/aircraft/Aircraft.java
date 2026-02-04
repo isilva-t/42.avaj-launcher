@@ -9,10 +9,10 @@ public class Aircraft extends Flyable {
     protected String name;
     protected Coordinates coordinates;
 
-    protected String rainMsg = "RAIN ☔ ";
-    protected String fogMsg = "FOG 🌫️";
-    protected String sunMsg = "SUN ☀️ ";
-    protected String snowMsg = "SNOW ❄️ ";
+    protected String rainMsg = "RAIN ☔  ";
+    protected String fogMsg = "FOG 🌫️  ";
+    protected String sunMsg = "SUN ☀️  ";
+    protected String snowMsg = "SNOW ❄️  ";
 
     protected Aircraft(long p_id,
         String p_name, 
@@ -54,7 +54,7 @@ public class Aircraft extends Flyable {
 
     public String getFullName() {
         String className = this.getClass().getSimpleName();
-        String nameAndId = "#" + this.name + "(" + this.id + ")";
+        String nameAndId = "#" + this.name + "(" + this.id + ") ";
         String fullName = className + nameAndId;
         return fullName;
     }
@@ -77,28 +77,28 @@ public class Aircraft extends Flyable {
 
 
     protected void weatherRain() {
-        System.out.println(
+        System.out.print(
             this.getFullName()
             + this.rainMsg
         );
     }
 
     protected void weatherFog() {
-        System.out.println(
+        System.out.print(
             this.getFullName()
             + this.fogMsg
         );
     }
 
     protected void weatherSun() {
-        System.out.println(
+        System.out.print(
             this.getFullName()
             + this.sunMsg
         );
     }
 
     protected void weatherSnow() {
-        System.out.println(
+        System.out.print(
             this.getFullName()
             + this.snowMsg
         );
