@@ -6,8 +6,9 @@ bin/
 toencrypt/*
 !toencrypt/.gitkeep
 
-private/*.pdf
+private/*
 !private/*.enc
+!private/*.sh
 
 # Java compiled files (from subject requirement)
 *.class

@@ -12,12 +12,12 @@ read -s PASSWORD
 mkdir -p private
 
 # Encrypt each file in toencrypt/
-for file in toencrypt/*; do
+for file in *; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         echo "Encrypting: $filename"
-        echo "$PASSWORD" | openssl enc -aes-256-cbc -salt -in "$file" -out "private/${filename}.enc" -pbkdf2 -pass stdin
-        echo -e "${GREEN}✓ Created: private/${filename}.enc${NC}"
+        echo "$PASSWORD" | openssl enc -aes-256-cbc -salt -in "$file" -out "${filename}.enc" -pbkdf2 -pass stdin
+        echo -e "${GREEN}✓ Created: ${filename}.enc${NC}"
     fi
 done
 
