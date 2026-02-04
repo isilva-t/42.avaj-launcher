@@ -75,24 +75,28 @@ public class Aircraft extends Flyable {
         }
     }
 
+
     protected void weatherRain() {
         System.out.println(
             this.getFullName()
             + this.rainMsg
         );
     }
+
     protected void weatherFog() {
         System.out.println(
             this.getFullName()
             + this.fogMsg
         );
     }
+
     protected void weatherSun() {
         System.out.println(
             this.getFullName()
             + this.sunMsg
         );
     }
+
     protected void weatherSnow() {
         System.out.println(
             this.getFullName()
