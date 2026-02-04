@@ -23,21 +23,25 @@ public class JetPlane extends Aircraft {
     }
 
     protected void weatherRain() {
+        super.changeCoordinates(0, 5, 0);
         super.weatherRain();
         System.out.println(rainMsg);
     }
 
     protected void weatherFog() {
+        super.changeCoordinates(0, 1, 0);
         super.weatherFog();
         System.out.println(fogMsg);
     }
 
     protected void weatherSun() {
+        super.changeCoordinates(0, 10, 2);
         super.weatherSun();
         System.out.println(sunMsg);
     }
 
     protected void weatherSnow() {
+        super.changeCoordinates(0, 0, -7);
         super.weatherSnow();
         System.out.println(snowMsg);
     }

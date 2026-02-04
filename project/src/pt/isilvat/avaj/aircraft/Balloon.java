@@ -22,22 +22,26 @@ public class Balloon extends Aircraft {
         super.updateConditions();
     }
 
-    protected void weatherRain() {
+    protected void weatherRain() {        
+        super.changeCoordinates(0, 0, -5);
         super.weatherRain();
         System.out.println(rainMsg);
     }
 
-    protected void weatherFog() {
+    protected void weatherFog() {        
+        super.changeCoordinates(0, 0, -3);
         super.weatherFog();
         System.out.println(fogMsg);
     }
 
-    protected void weatherSun() {
+    protected void weatherSun() {        
+        super.changeCoordinates(2, 0, 4);
         super.weatherSun();
         System.out.println(sunMsg);
     }
 
     protected void weatherSnow() {
+        super.changeCoordinates(0, 0, -15);
         super.weatherSnow();
         System.out.println(snowMsg);
     }

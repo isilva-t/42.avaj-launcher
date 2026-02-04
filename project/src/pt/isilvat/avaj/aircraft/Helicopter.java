@@ -23,21 +23,25 @@ public class Helicopter extends Aircraft {
     }
 
     protected void weatherRain() {
+        super.changeCoordinates(5, 0, 0);
         super.weatherRain();
         System.out.println(rainMsg);
     }
 
     protected void weatherFog() {
+        super.changeCoordinates(1, 0, 0);
         super.weatherFog();
         System.out.println(fogMsg);
     }
 
     protected void weatherSun() {
+        super.changeCoordinates(10, 0, 2);
         super.weatherSun();
         System.out.println(sunMsg);
     }
 
     protected void weatherSnow() {
+        super.changeCoordinates(0, 0, -12);
         super.weatherSnow();
         System.out.println(snowMsg);
     }
