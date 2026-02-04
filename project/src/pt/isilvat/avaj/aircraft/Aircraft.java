@@ -75,6 +75,17 @@ public class Aircraft extends Flyable {
         }
     }
 
+    protected void changeCoordinates(
+        int p_longitude,
+        int p_latitude,
+        int p_height
+        ) {
+            Coordinates newCoordinates = new Coordinates(
+                coordinates.getLongitude() + p_longitude,
+                coordinates.getLatitude() + p_latitude,
+                coordinates.getHeight() + p_height);
+        coordinates = newCoordinates;
+    }
 
     protected void weatherRain() {
         System.out.print(
