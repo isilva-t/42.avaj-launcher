@@ -31,7 +31,7 @@ public class Simulator {
         }
 
 
-        int simulationRunningTimes = 4;
+        int simulationRunningTimes = 15;
         for (; simulationRunningTimes > 0; simulationRunningTimes--) {
             weatherTower.changeWeather();
             System.out.println("");
