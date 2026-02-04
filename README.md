@@ -18,6 +18,8 @@ This project simulates aircraft behavior under changing weather conditions. Airc
 - Aircraft land when reaching height 0
 - Outputs simulation log to `simulation.txt`
 
+## UML Class diagram
+
 ```mermaid
 
 classDiagram
@@ -27,10 +29,12 @@ classDiagram
 
         + void register(Flyable* p_flyable)
         + void unregister(Flyable p_flyable)
+        # void conditionChanged()
     }
 
     class Flyable {
         <<abstract>>
+        # WeatherTower weatherTower
         + abstract void updateConditions()
         + void registerTower()
         + void unregisterTower()
@@ -51,7 +55,7 @@ classDiagram
         - int latitude
         - int height
 
-        Coordinates(int p_longitude, int p_latitude, int p_height)
+        ~ Coordinates(int p_longitude, int p_latitude, int p_height)
 
         + int getLongitude()
         + int getLatitude()
