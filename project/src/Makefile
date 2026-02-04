@@ -4,3 +4,7 @@ all:
 
 run:
 	java pt.isilvat.avaj.aircraft.Simulator
+
+clean:
+	rm -f sources.txt
+	find . -name "*.class" -delete
