@@ -13,7 +13,11 @@ public abstract class Flyable {
     public abstract void updateConditions();
 
     public void registerTower(WeatherTower p_tower) {
+        if (p_tower == null) {
+            return;
+        }
         this.weatherTower = p_tower;
+        weatherTower.register(this);
     }
 
     public void unregisterTower() {

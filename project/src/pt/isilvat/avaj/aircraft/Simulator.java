@@ -17,6 +17,7 @@ public class Simulator {
 
         List<Flyable> flyables = new ArrayList<>();
 
+        System.out.println("");
 
         Coordinates coords = new Coordinates(10, 10, 10);
         Flyable balloon = aircraftFactory.newAircraft("Balloon","B1", coords);            
@@ -30,9 +31,10 @@ public class Simulator {
         }
 
 
-        int simulationRunningTimes = 3;
+        int simulationRunningTimes = 4;
         for (; simulationRunningTimes > 0; simulationRunningTimes--) {
             weatherTower.changeWeather();
+            System.out.println("");
         }
     }
 }

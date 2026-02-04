@@ -13,8 +13,12 @@ public class Tower {
     private List<Flyable> observers = new ArrayList<>();
     private final String name = "Tower Says: ";
     private final String className = this.getClass().getSimpleName();
+
     protected void conditionChanged() {
 
+        for (Flyable observer: this.observers) {
+            observer.updateConditions();
+        }
     }
 
     public void register(Flyable p_flyable) {
