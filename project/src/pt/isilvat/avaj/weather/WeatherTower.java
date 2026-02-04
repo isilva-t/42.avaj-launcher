@@ -17,7 +17,6 @@ public class WeatherTower extends Tower {
     } 
 
     public void changeWeather() {
-      System.out.println("Weather will changed from here.");
       super.conditionChanged();
     }
 }
