@@ -3,7 +3,6 @@ classDiagram
 
     class Tower {    
         - List<'Flyable'> observers
-
         + void register(Flyable* p_flyable)
         + void unregister(Flyable p_flyable)
         # void conditionChanged()
@@ -14,6 +13,7 @@ classDiagram
         # WeatherTower weatherTower
         + abstract void updateConditions()
         + void registerTower()
+
         # void unregisterTower()
     }
 
@@ -22,14 +22,14 @@ classDiagram
         # long id
         # String name
         # Coordinates coordinates
-
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
         + String getFullName()
+
         - void checkHeight()
         - int getNormalizedHeight()
-        
+
         # void changeCoordinates(int p_longitude, int p_latitude, int p_height)
-        # printChildMessage(String message)
+        # void printChildMessage(String message)
 
         # void weatherRain()
         # void weatherFog()
@@ -41,12 +41,11 @@ classDiagram
         - int longitude
         - int latitude
         - int height
-
         ~ Coordinates(int p_longitude, int p_latitude, int p_height)
-
         + int getLongitude()
         + int getLatitude()
         + int getHeight()
+
         + String getStringCoord()
     }
 
@@ -64,6 +63,7 @@ classDiagram
     class Baloon {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
         # void weatherRain()
         # void weatherFog()
         # void weatherSun()
@@ -72,6 +72,7 @@ classDiagram
     class Helicopter {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
         # void weatherRain()
         # void weatherFog()
         # void weatherSun()
@@ -80,6 +81,7 @@ classDiagram
     class JetPlane {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
         # void weatherRain()
         # void weatherFog()
         # void weatherSun()
@@ -110,7 +112,4 @@ classDiagram
 
     Tower ..> Printer : uses
     Aircraft ..> Printer : uses
-
-
-
-
+    

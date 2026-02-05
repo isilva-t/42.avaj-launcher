@@ -26,7 +26,6 @@ classDiagram
 
     class Tower {    
         - List<'Flyable'> observers
-
         + void register(Flyable* p_flyable)
         + void unregister(Flyable p_flyable)
         # void conditionChanged()
@@ -37,7 +36,8 @@ classDiagram
         # WeatherTower weatherTower
         + abstract void updateConditions()
         + void registerTower()
-        + void unregisterTower()
+
+        # void unregisterTower()
     }
 
     
@@ -45,28 +45,37 @@ classDiagram
         # long id
         # String name
         # Coordinates coordinates
-
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
-        + checkHeight()
+        + String getFullName()
+
+        - void checkHeight()
+        - int getNormalizedHeight()
+
+        # void changeCoordinates(int p_longitude, int p_latitude, int p_height)
+        # void printChildMessage(String message)
+
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()
     }
 
     class Coordinates {
         - int longitude
         - int latitude
         - int height
-
         ~ Coordinates(int p_longitude, int p_latitude, int p_height)
-
         + int getLongitude()
         + int getLatitude()
         + int getHeight()
+
+        + String getStringCoord()
     }
 
     class WeatherProvider {
         <<singleton>>
         - string[] weather
         + string getCurrentWeather(Coordinates p_coordinates)
-        + WeatherProvider getInstance()
     }
 
     class WeatherTower {
@@ -77,20 +86,41 @@ classDiagram
     class Baloon {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
     class Helicopter {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
     class JetPlane {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
 
     class AircraftFactory {
         <<singleton>>
         + Flyable newAircraft(string p_type, string p_name, Coordinates p_coordinates)
-        + AircraftFactory getInstance()
+    }
+
+    class Printer {
+        <<utility>>
+        + print(String message, String coordinates)
+        - toConsole(String message, String coordinates)
+        - toFile(String message)
     }
 
     Flyable <|.. Aircraft
@@ -102,6 +132,10 @@ classDiagram
     Aircraft <|-- Baloon 
     Aircraft <|-- Helicopter 
     Aircraft <|-- JetPlane
+
+    Tower ..> Printer : uses
+    Aircraft ..> Printer : uses
+    
 ```
 
 ## Requirements
