@@ -2,6 +2,7 @@ package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.factory.AircraftFactory;
 import pt.isilvat.avaj.weather.WeatherTower;
+import pt.isilvat.avaj.printer.Printer;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class Simulator {
 
         List<Flyable> flyables = new ArrayList<>();
 
-        System.out.println("");
+        Printer.print("", "");
 
         Coordinates coords = new Coordinates(10, 10, 10);
         Flyable balloon = AircraftFactory.newAircraft("Balloon","B1", coords);            
@@ -33,7 +34,7 @@ public class Simulator {
         int simulationRunningTimes = 15;
         for (; simulationRunningTimes > 0; simulationRunningTimes--) {
             weatherTower.changeWeather();
-            System.out.println("");
+            Printer.print("", "");
         }
     }
 }

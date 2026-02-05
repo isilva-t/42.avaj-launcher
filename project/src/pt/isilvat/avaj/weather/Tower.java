@@ -3,6 +3,7 @@ package pt.isilvat.avaj.weather;
 import java.util.ArrayList;
 import java.util.List;
 import pt.isilvat.avaj.aircraft.Flyable;
+import pt.isilvat.avaj.printer.Printer;
 
 
 public class Tower {
@@ -24,27 +25,29 @@ public class Tower {
 
     public void register(Flyable p_flyable) {
         this.observers.add(p_flyable);
-        System.out.println(
+        Printer.print(
             this.name
             + " "
             + p_flyable.getFullName()
             + " "
             + "registered to"
             + " "
-            + this.className
+            + this.className,
+            ""
         );
     }
 
     public void unregister(Flyable p_flyable) {
         String flyableName = p_flyable.getFullName();
-        System.out.println(
+        Printer.print(
             this.name 
             + " "
             + flyableName 
             + " "
             + "unregistered from" 
             + " "
-            + this.className);
+            + this.className,
+            "");
         this.observers.remove(p_flyable);
     }
 }

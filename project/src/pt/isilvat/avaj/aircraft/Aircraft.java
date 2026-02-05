@@ -2,6 +2,7 @@ package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.aircraft.Flyable;
 import pt.isilvat.avaj.weather.WeatherTower;
+import pt.isilvat.avaj.printer.Printer;
 
 public class Aircraft extends Flyable {
 
@@ -70,7 +71,7 @@ public class Aircraft extends Flyable {
         }
         else if (height <= 0) {
             String className = this.getClass().getSimpleName();
-            System.out.println(this.getFullName() + " landing.");
+            Printer.print(this.getFullName() + " landing.", "");
             this.unregisterTower();
         }
     }
@@ -96,11 +97,12 @@ public class Aircraft extends Flyable {
     }
 
     protected void printChildMessage(String message) {
-        System.out.println(
+        Printer.print(
             this.getFullName()
             + " "
-            + message
-            + getStringCoordinates());
+            + message,
+            getStringCoordinates()
+            );
     }
 
     protected void weatherRain() {}
