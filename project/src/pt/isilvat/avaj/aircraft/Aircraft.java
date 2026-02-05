@@ -59,7 +59,7 @@ public class Aircraft extends Flyable {
         return fullName;
     }
 
-    protected void checkHeight() {
+    private void checkHeight() {
         int height = this.coordinates.getHeight();
         if (height > 100) {
             this.coordinates = new Coordinates(
@@ -87,7 +87,7 @@ public class Aircraft extends Flyable {
         coordinates = newCoordinates;
     }
 
-    protected String getStringCoordinates() {
+    private String getStringCoordinates() {
         String textCoordinates = 
         " LON: " + coordinates.getLongitude() 
         + ", LAT: " + coordinates.getLatitude()
