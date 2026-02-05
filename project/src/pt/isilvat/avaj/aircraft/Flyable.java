@@ -20,7 +20,7 @@ public abstract class Flyable {
         weatherTower.register(this);
     }
 
-    public void unregisterTower() {
+    protected void unregisterTower() {
         if (this.weatherTower != null) {
             this.weatherTower.unregister(this);
             this.weatherTower = null;
