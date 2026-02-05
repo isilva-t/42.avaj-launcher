@@ -14,7 +14,7 @@ classDiagram
         # WeatherTower weatherTower
         + abstract void updateConditions()
         + void registerTower()
-        + void unregisterTower()
+        # void unregisterTower()
     }
 
     
@@ -24,11 +24,11 @@ classDiagram
         # Coordinates coordinates
 
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
-        + getFullName()
-        - checkHeight()
-        - getStringCoordinates()
+        + String getFullName()
+        - void checkHeight()
+        - int getNormalizedHeight()
         
-        # changeCoordinates(int p_longitude, int p_latitude, int p_height)
+        # void changeCoordinates(int p_longitude, int p_latitude, int p_height)
         # printChildMessage(String message)
 
         # void weatherRain()
@@ -47,6 +47,7 @@ classDiagram
         + int getLongitude()
         + int getLatitude()
         + int getHeight()
+        + String getStringCoord()
     }
 
     class WeatherProvider {

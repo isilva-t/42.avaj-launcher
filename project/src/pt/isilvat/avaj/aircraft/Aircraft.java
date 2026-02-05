@@ -46,8 +46,7 @@ public class Aircraft extends Flyable {
                 default:
                     throw new Exception("Invalid weather.");
             }
-            this.checkHeight();
-            
+            checkHeight();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -60,18 +59,24 @@ public class Aircraft extends Flyable {
         return fullName;
     }
 
-    private void checkHeight() {
-        int height = this.coordinates.getHeight();
+    private int getNormalizedHeight(int height) {
         if (height > 100) {
-            this.coordinates = new Coordinates(
-                this.coordinates.getLongitude(),
-                this.coordinates.getLatitude(),
-                100
-                );
+            return 100;
         }
         else if (height <= 0) {
+            return 0;
+        }
+        return height;
+    }
+
+    private void checkHeight() {
+        if (coordinates.getHeight() <= 0) {
             String className = this.getClass().getSimpleName();
-            Printer.print(this.getFullName() + " landing.", "");
+            Printer.print(
+                this.getFullName()
+                + " landing.",
+                coordinates.getStringCoord()
+                );
             this.unregisterTower();
         }
     }
@@ -81,10 +86,14 @@ public class Aircraft extends Flyable {
         int p_latitude,
         int p_height
         ) {
-            Coordinates newCoordinates = new Coordinates(
-                coordinates.getLongitude() + p_longitude,
-                coordinates.getLatitude() + p_latitude,
-                coordinates.getHeight() + p_height);
+        int newHeight = getNormalizedHeight(
+            coordinates.getHeight() + p_height);
+
+        Coordinates newCoordinates = new Coordinates(
+            coordinates.getLongitude() + p_longitude,
+            coordinates.getLatitude() + p_latitude,
+            newHeight);
+
         coordinates = newCoordinates;
     }
 
