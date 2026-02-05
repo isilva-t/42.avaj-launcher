@@ -26,4 +26,12 @@ public class Coordinates {
     public int getHeight() {
         return height;
     }
+
+    public String getStringCoord() {
+        String textCoordinates = 
+        " LON: " + longitude 
+        + ", LAT: " + latitude
+        + ", H: " + height;
+        return textCoordinates;
+    }
 }
