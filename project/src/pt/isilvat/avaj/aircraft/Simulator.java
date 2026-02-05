@@ -13,16 +13,15 @@ public class Simulator {
     public static void main(String[] args) {
 
         weatherTower = new WeatherTower();
-        AircraftFactory aircraftFactory = AircraftFactory.getInstance();
 
         List<Flyable> flyables = new ArrayList<>();
 
         System.out.println("");
 
         Coordinates coords = new Coordinates(10, 10, 10);
-        Flyable balloon = aircraftFactory.newAircraft("Balloon","B1", coords);            
-        Flyable helicopter = aircraftFactory.newAircraft("Helicopter","H1", coords);            
-        Flyable jetplane = aircraftFactory.newAircraft("JetPlane","B1", coords);
+        Flyable balloon = AircraftFactory.newAircraft("Balloon","B1", coords);            
+        Flyable helicopter = AircraftFactory.newAircraft("Helicopter","H1", coords);            
+        Flyable jetplane = AircraftFactory.newAircraft("JetPlane","B1", coords);
         flyables.add(balloon);
         flyables.add(helicopter);
         flyables.add(jetplane);
