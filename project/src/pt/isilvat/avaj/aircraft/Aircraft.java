@@ -96,34 +96,11 @@ public class Aircraft extends Flyable {
     }
 
     protected void printChildMessage(String message) {
-        System.out.println(message + getStringCoordinates());
+        System.out.println(this.getFullName() + message + getStringCoordinates());
     }
 
-    protected void weatherRain() {
-        System.out.print(
-            this.getFullName()
-            + this.rainMsg
-        );
-    }
-
-    protected void weatherFog() {
-        System.out.print(
-            this.getFullName()
-            + this.fogMsg
-        );
-    }
-
-    protected void weatherSun() {
-        System.out.print(
-            this.getFullName()
-            + this.sunMsg
-        );
-    }
-
-    protected void weatherSnow() {
-        System.out.print(
-            this.getFullName()
-            + this.snowMsg
-        );
-    }
+    protected void weatherRain() {}
+    protected void weatherFog() {}
+    protected void weatherSun() {}
+    protected void weatherSnow() {}
 }

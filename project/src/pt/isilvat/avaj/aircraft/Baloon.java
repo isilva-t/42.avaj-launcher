@@ -24,25 +24,21 @@ public class Baloon extends Aircraft {
 
     protected void weatherRain() {        
         super.changeCoordinates(0, 0, -5);
-        super.weatherRain();
-        super.printChildMessage(rainMsg);
+        super.printChildMessage(super.rainMsg + rainMsg);
     }
 
     protected void weatherFog() {        
         super.changeCoordinates(0, 0, -3);
-        super.weatherFog();
-        super.printChildMessage(fogMsg);
+        super.printChildMessage(super.fogMsg + fogMsg);
     }
 
     protected void weatherSun() {        
         super.changeCoordinates(2, 0, 4);
-        super.weatherSun();
-        super.printChildMessage(sunMsg);
+        super.printChildMessage(super.sunMsg + sunMsg);
     }
 
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -15);
-        super.weatherSnow();
-        super.printChildMessage(snowMsg);
+        super.printChildMessage(super.sunMsg + snowMsg);
     }
 }
