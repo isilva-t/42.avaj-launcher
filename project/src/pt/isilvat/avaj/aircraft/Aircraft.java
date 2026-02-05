@@ -88,21 +88,12 @@ public class Aircraft extends Flyable {
         coordinates = newCoordinates;
     }
 
-    private String getStringCoordinates() {
-        String textCoordinates = 
-        " LON: " + coordinates.getLongitude() 
-        + ", LAT: " + coordinates.getLatitude()
-        + ", H: " + coordinates.getHeight();
-        return textCoordinates;
-    }
-
     protected void printChildMessage(String message) {
         Printer.print(
             this.getFullName()
             + " "
             + message,
-            getStringCoordinates()
-            );
+            coordinates.getStringCoord());
     }
 
     protected void weatherRain() {}

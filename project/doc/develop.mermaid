@@ -24,7 +24,17 @@ classDiagram
         # Coordinates coordinates
 
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
-        + checkHeight()
+        + getFullName()
+        - checkHeight()
+        - getStringCoordinates()
+        
+        # changeCoordinates(int p_longitude, int p_latitude, int p_height)
+        # printChildMessage(String message)
+
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()
     }
 
     class Coordinates {
@@ -43,7 +53,6 @@ classDiagram
         <<singleton>>
         - string[] weather
         + string getCurrentWeather(Coordinates p_coordinates)
-        + WeatherProvider getInstance()
     }
 
     class WeatherTower {
@@ -54,20 +63,38 @@ classDiagram
     class Baloon {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
     class Helicopter {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
     class JetPlane {
         + Baloon(long p_id, string p_name, Coordinates p_coordinates)
         + void updateConditions()
+        # void weatherRain()
+        # void weatherFog()
+        # void weatherSun()
+        # void weatherSnow()    
     }
 
     class AircraftFactory {
         <<singleton>>
         + Flyable newAircraft(string p_type, string p_name, Coordinates p_coordinates)
-        + AircraftFactory getInstance()
+    }
+
+    class Printer {
+        <<utility>>
+        + print(String message, String coordinates)
+        - toConsole(String message, String coordinates)
+        - toFile(String message)
     }
 
     Flyable <|.. Aircraft
@@ -79,6 +106,9 @@ classDiagram
     Aircraft <|-- Baloon 
     Aircraft <|-- Helicopter 
     Aircraft <|-- JetPlane
+
+    Tower ..> Printer : uses
+    Aircraft ..> Printer : uses
 
 
 
