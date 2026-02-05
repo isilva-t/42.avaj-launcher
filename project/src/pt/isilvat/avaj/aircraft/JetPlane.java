@@ -39,6 +39,6 @@ public class JetPlane extends Aircraft {
 
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -7);
-        super.printChildMessage(super.sunMsg + snowMsg);
+        super.printChildMessage(super.snowMsg + snowMsg);
     }
 }

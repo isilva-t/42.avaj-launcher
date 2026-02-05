@@ -54,7 +54,7 @@ public class Aircraft extends Flyable {
 
     public String getFullName() {
         String className = this.getClass().getSimpleName();
-        String nameAndId = "#" + this.name + "(" + this.id + ") ";
+        String nameAndId = "#" + this.name + "(" + this.id + ")";
         String fullName = className + nameAndId;
         return fullName;
     }
@@ -96,7 +96,11 @@ public class Aircraft extends Flyable {
     }
 
     protected void printChildMessage(String message) {
-        System.out.println(this.getFullName() + message + getStringCoordinates());
+        System.out.println(
+            this.getFullName()
+            + " "
+            + message
+            + getStringCoordinates());
     }
 
     protected void weatherRain() {}

@@ -11,7 +11,7 @@ public class Tower {
     }
 
     private List<Flyable> observers = new ArrayList<>();
-    private final String name = "Tower Says: ";
+    private final String name = "Tower Says:";
     private final String className = this.getClass().getSimpleName();
 
     protected void conditionChanged() {
@@ -26,8 +26,11 @@ public class Tower {
         this.observers.add(p_flyable);
         System.out.println(
             this.name
+            + " "
             + p_flyable.getFullName()
-            + " registered to "
+            + " "
+            + "registered to"
+            + " "
             + this.className
         );
     }
@@ -36,8 +39,11 @@ public class Tower {
         String flyableName = p_flyable.getFullName();
         System.out.println(
             this.name 
+            + " "
             + flyableName 
-            + " unregistered from " 
+            + " "
+            + "unregistered from" 
+            + " "
             + this.className);
         this.observers.remove(p_flyable);
     }

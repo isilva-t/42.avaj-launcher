@@ -39,6 +39,6 @@ public class Helicopter extends Aircraft {
 
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -12);
-        super.printChildMessage(super.sunMsg + snowMsg);
+        super.printChildMessage(super.snowMsg + snowMsg);
     }
 }
