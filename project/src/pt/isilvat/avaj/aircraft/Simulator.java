@@ -44,7 +44,7 @@ public class Simulator {
         Printer.print("", "");
 
         Coordinates coords = new Coordinates(10, 10, 10);
-        Flyable balloon = AircraftFactory.newAircraft("Balloon","B1", coords);            
+        Flyable balloon = AircraftFactory.newAircraft("Baloon","B1", coords);            
         Flyable helicopter = AircraftFactory.newAircraft("Helicopter","H1", coords);            
         Flyable jetplane = AircraftFactory.newAircraft("JetPlane","B1", coords);
         flyables.add(balloon);

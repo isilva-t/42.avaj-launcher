@@ -27,7 +27,7 @@ public class AircraftFactory {
                 throw new Exception("Can't register more aircrafts!");
             } 
             switch(p_type) {
-                case "Balloon": 
+                case "Baloon": 
                     return new Baloon(++this.id, p_name, p_coordinates);
                 case "Helicopter": 
                     return new Helicopter(++this.id, p_name, p_coordinates);
