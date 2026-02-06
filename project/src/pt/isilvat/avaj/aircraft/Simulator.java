@@ -41,6 +41,7 @@ public class Simulator {
                 Flyable flyable = AircraftFactory.newAircraft(type, name, coordinates);
                 flyable.registerTower(weatherTower);
             }
+            br.close();
         } catch (Exception e) {
 
         }
