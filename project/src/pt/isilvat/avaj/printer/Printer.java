@@ -1,6 +1,17 @@
 package pt.isilvat.avaj.printer;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 public class Printer {
+
+    public static void powerOn() {
+        
+    }
+
+    public static void powerOff() {
+        
+    }
 
     public static void print(String message, String coordinates) {
 
@@ -13,6 +24,11 @@ public class Printer {
     }
 
     private static void toFile(String message) {
+        try {
+
+        } catch (Exception e) {
+
+        }
         
     }
 }

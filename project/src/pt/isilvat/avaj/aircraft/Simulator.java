@@ -47,11 +47,9 @@ public class Simulator {
     }
 
     private static void runSimulation() {
-
         Printer.print("", "");
         for (; simulationCycles > 0; simulationCycles--) {
             weatherTower.changeWeather();
-            Printer.print("", "");
         }
     }
 
@@ -60,9 +58,10 @@ public class Simulator {
             return;
         }
         try {
-
+            Printer.powerOn();
             loadData(args[0]);
             runSimulation();
+            Printer.powerOff();
 
         } catch (Exception e) {
             System.out.println("oops");
