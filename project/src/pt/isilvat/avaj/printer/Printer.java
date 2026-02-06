@@ -5,12 +5,19 @@ import java.io.IOException;
 
 public class Printer {
 
+    public static final String fileName = "simulation.txt";
+
     public static void powerOn() {
-        
+        try {
+
+            FileOutputStream outputFile= new FileOutputStream(fileName);
+        } catch (Exception e) {
+
+        }
     }
 
     public static void powerOff() {
-        
+
     }
 
     public static void print(String message, String coordinates) {
@@ -25,7 +32,8 @@ public class Printer {
 
     private static void toFile(String message) {
         try {
-
+            FileOutputStream outputFile = new FileOutputStream(fileName, true);
+            outputFile.write((message + "\n").getBytes());
         } catch (Exception e) {
 
         }
