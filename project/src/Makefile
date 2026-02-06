@@ -3,7 +3,7 @@ all:
 	javac @sources.txt
 
 run:
-	java pt.isilvat.avaj.aircraft.Simulator
+	java pt.isilvat.avaj.aircraft.Simulator scenario.txt
 
 clean:
 	rm -f sources.txt
