@@ -36,39 +36,41 @@ public class Simulator {
         }
     }
 
+    private static void runSimulation() {
+        weatherTower = new WeatherTower();
 
+        List<Flyable> flyables = new ArrayList<>();
+
+        Printer.print("", "");
+
+        Coordinates coords = new Coordinates(10, 10, 10);
+        Flyable balloon = AircraftFactory.newAircraft("Balloon","B1", coords);            
+        Flyable helicopter = AircraftFactory.newAircraft("Helicopter","H1", coords);            
+        Flyable jetplane = AircraftFactory.newAircraft("JetPlane","B1", coords);
+        flyables.add(balloon);
+        flyables.add(helicopter);
+        flyables.add(jetplane);
+        for(Flyable flyable: flyables) {
+            flyable.registerTower(weatherTower);
+        }
+
+
+        int simulationRunningTimes = 15;
+        for (; simulationRunningTimes > 0; simulationRunningTimes--) {
+            weatherTower.changeWeather();
+            Printer.print("", "");
+        }
+    }
 
     public static void main(String[] args) {
         if (args.length < 1) {
             return;
         }
-
         try {
+
             loadData(args[0]);
-
-            weatherTower = new WeatherTower();
-
-            List<Flyable> flyables = new ArrayList<>();
-
-            Printer.print("", "");
-
-            Coordinates coords = new Coordinates(10, 10, 10);
-            Flyable balloon = AircraftFactory.newAircraft("Balloon","B1", coords);            
-            Flyable helicopter = AircraftFactory.newAircraft("Helicopter","H1", coords);            
-            Flyable jetplane = AircraftFactory.newAircraft("JetPlane","B1", coords);
-            flyables.add(balloon);
-            flyables.add(helicopter);
-            flyables.add(jetplane);
-            for(Flyable flyable: flyables) {
-                flyable.registerTower(weatherTower);
-            }
-
-
-            int simulationRunningTimes = 15;
-            for (; simulationRunningTimes > 0; simulationRunningTimes--) {
-                weatherTower.changeWeather();
-                Printer.print("", "");
-            }
+            runSimulation();
+            
         } catch (Exception e) {
             System.out.println("oops");
         }
