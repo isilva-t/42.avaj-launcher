@@ -26,37 +26,30 @@ public class Simulator {
                 new FileReader(file));
 
             String line;
+            simulationCycles = Integer.parseInt(br.readLine());
 
+            weatherTower = new WeatherTower();
             while((line = br.readLine()) != null) {
-                System.out.println(line);
+                String[] lineInfo = line.split("\\s+");
+                String type = lineInfo[0];
+                String name = lineInfo[1];
+                Coordinates coordinates = new Coordinates(
+                    Integer.parseInt(lineInfo[2]),
+                    Integer.parseInt(lineInfo[3]),
+                    Integer.parseInt(lineInfo[4])
+                );
+                Flyable flyable = AircraftFactory.newAircraft(type, name, coordinates);
+                flyable.registerTower(weatherTower);
             }
-
         } catch (Exception e) {
 
         }
     }
 
     private static void runSimulation() {
-        weatherTower = new WeatherTower();
-
-        List<Flyable> flyables = new ArrayList<>();
 
         Printer.print("", "");
-
-        Coordinates coords = new Coordinates(10, 10, 10);
-        Flyable balloon = AircraftFactory.newAircraft("Baloon","B1", coords);            
-        Flyable helicopter = AircraftFactory.newAircraft("Helicopter","H1", coords);            
-        Flyable jetplane = AircraftFactory.newAircraft("JetPlane","B1", coords);
-        flyables.add(balloon);
-        flyables.add(helicopter);
-        flyables.add(jetplane);
-        for(Flyable flyable: flyables) {
-            flyable.registerTower(weatherTower);
-        }
-
-
-        int simulationRunningTimes = 15;
-        for (; simulationRunningTimes > 0; simulationRunningTimes--) {
+        for (; simulationCycles > 0; simulationCycles--) {
             weatherTower.changeWeather();
             Printer.print("", "");
         }
@@ -70,7 +63,7 @@ public class Simulator {
 
             loadData(args[0]);
             runSimulation();
-            
+
         } catch (Exception e) {
             System.out.println("oops");
         }
