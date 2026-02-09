@@ -10,3 +10,7 @@ clean:
 	find . -name "*.class" -delete
 
 q:	all run clean
+
+t: all
+	./tester.sh 
+	$(MAKE) clean
