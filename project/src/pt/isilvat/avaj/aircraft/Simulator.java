@@ -48,7 +48,6 @@ public class Simulator {
     }
 
     private static void runSimulation() {
-        Printer.print("", "");
         for (; simulationCycles > 0; simulationCycles--) {
             weatherTower.changeWeather();
         }
