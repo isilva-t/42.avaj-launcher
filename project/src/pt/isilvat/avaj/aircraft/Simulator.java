@@ -37,6 +37,10 @@ public class Simulator {
     private static void loadData(String fileName) {
         try {
             File file = new File(fileName);
+            if (!file.exists() || !file.isFile()) {
+                throw new InvalidScenarioFile("File not found: " + fileName);
+            }
+
             BufferedReader br = new BufferedReader(
                 new FileReader(file));
 
