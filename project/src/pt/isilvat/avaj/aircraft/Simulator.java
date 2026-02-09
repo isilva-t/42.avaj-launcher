@@ -58,7 +58,8 @@ public class Simulator {
             }
             br.close();
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
     }
 
