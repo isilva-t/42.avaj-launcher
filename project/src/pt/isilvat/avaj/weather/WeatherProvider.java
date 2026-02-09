@@ -17,9 +17,11 @@ public class WeatherProvider {
     }
 
     private String getWeather(Coordinates p_coordinates) {
-        if (this.cur > 3) {
-            this.cur = 0;
-        }
-        return(weather[cur++]);
+        
+        int current = 
+            (p_coordinates.getLongitude() * 4
+            + p_coordinates.getLatitude() * 3
+            + p_coordinates.getHeight() * 9) % 4;
+        return(weather[current]);
     }
 }
