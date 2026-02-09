@@ -69,10 +69,11 @@ public class Simulator {
     }
 
     public static void main(String[] args) {
-        if (args.length < 1) {
-            return;
-        }
+
         try {
+            if (args.length != 1) {
+                throw new InvalidNumberOfArguments();
+            }
             Printer.powerOn();
             validateFIleExtension(args[0]);
             loadData(args[0]);
@@ -80,7 +81,8 @@ public class Simulator {
             Printer.powerOff();
 
         } catch (Exception e) {
-            System.out.println("oops");
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
     }
 }
