@@ -12,12 +12,27 @@ import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 
+import pt.isilvat.avaj.exceptions.*;
 
 public class Simulator {
 
     private static WeatherTower weatherTower = null;
 
     private static int simulationCycles;
+
+    private static void validateFIleExtension (String fileName) {
+        try {
+            if (!fileName.endsWith(".txt")) {
+                throw new InvalidFileExtension();
+            }
+            if (fileName.equals(".txt") || fileName.endsWith("/.txt")) {
+                throw new InvalidFileExtension("Only a hidden \".txt\" file.");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+    }
 
     private static void loadData(String fileName) {
         try {
@@ -59,6 +74,7 @@ public class Simulator {
         }
         try {
             Printer.powerOn();
+            validateFIleExtension(args[0]);
             loadData(args[0]);
             runSimulation();
             Printer.powerOff();
