@@ -34,3 +34,10 @@ java pt.isilvat.avaj.aircraft.Simulator
 
 echo -e "\n${YELLOW}Test: More than one argument${NC}"
 java pt.isilvat.avaj.aircraft.Simulator one two
+
+echo "=========================================="
+echo "Testing Without file read permissions"
+echo "=========================================="
+
+echo -e "\n${YELLOW}Test: Reading file without permissions${NC}"
+java pt.isilvat.avaj.aircraft.Simulator without_permission.txt
