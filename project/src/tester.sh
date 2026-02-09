@@ -44,3 +44,5 @@ java pt.isilvat.avaj.aircraft.Simulator without_permission.txt
 
 echo -e "\n${YELLOW}Test: This file doesn't exist${NC}"
 java pt.isilvat.avaj.aircraft.Simulator unknown_file.txt
+
+echo ""
