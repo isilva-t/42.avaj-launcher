@@ -5,6 +5,10 @@ all:
 run:
 	java pt.isilvat.avaj.aircraft.Simulator scenario.txt
 
+sub: all
+	java pt.isilvat.avaj.aircraft.Simulator scenario_subject.txt
+	$(MAKE) clean
+
 clean:
 	rm -f sources.txt
 	find . -name "*.class" -delete
@@ -14,3 +18,6 @@ q:	all run clean
 t: all
 	./tester.sh 
 	$(MAKE) clean
+
+r:
+	rm simulation.txt
