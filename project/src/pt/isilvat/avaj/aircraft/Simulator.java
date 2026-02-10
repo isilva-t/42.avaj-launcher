@@ -62,7 +62,7 @@ public class Simulator {
         return -1;
     }
 
-    private static void loadData(String fileName) {
+    private static List<Flyable> getFlyables(String fileName) {
         try {
             File file = new File(fileName);
             if (!file.exists() || !file.isFile()) {
@@ -95,13 +95,13 @@ public class Simulator {
                 flyables.add(flyable);
             }
             br.close();
-            for (Flyable flyable : flyables) {
-                flyable.registerTower(weatherTower);
-            }
+            return flyables;
+
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
         }
+        return new ArrayList<>();
     }
 
     private static void runSimulation() {
@@ -116,11 +116,15 @@ public class Simulator {
             if (args.length != 1) {
                 throw new InvalidNumberOfArguments();
             }
-            Printer.powerOn();
             validateFIleExtension(args[0]);
-            loadData(args[0]);
+
+            List<Flyable> flyables = getFlyables(args[0]);
+            Printer.powerOn();
+            for (Flyable flyable : flyables) {
+                flyable.registerTower(weatherTower);
+            }
+
             runSimulation();
-            Printer.powerOff();
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
