@@ -34,12 +34,43 @@ public class Simulator {
         }
     }
 
-    private static int getPositive(int number) {
-        return number;
+    private static int getLongitude(int longitude) {
+        try {
+            if (longitude < 1) {
+                throw new InvalidCoordinates("longitude");
+            }
+            return longitude;
+        } catch (InvalidCoordinates e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return -1;
+    } 
+
+    private static int getLatitude(int latitude) {
+        try {
+            if (latitude < 1) {
+                throw new InvalidCoordinates("latitude");
+            }
+            return latitude;
+        } catch (InvalidCoordinates e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return -1;
     }
 
-    private static int getHeight(int number) {
-        return number;
+    private static int getHeight(int height) {
+        try {
+            if (height > 100 || height < 0) {
+                throw new InvalidCoordinates("height");
+            }
+            return height;
+        } catch (InvalidCoordinates e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
+        }
+        return -1;
     }
 
     private static void loadData(String fileName) {
@@ -60,8 +91,8 @@ public class Simulator {
                 String[] lineInfo = line.split("\\s+");
                 String type = lineInfo[0];
                 String name = lineInfo[1];
-                int longitude = getPositive(Integer.parseInt(lineInfo[2]));
-                int latitude = getPositive(Integer.parseInt(lineInfo[3]));
+                int longitude = getLongitude(Integer.parseInt(lineInfo[2]));
+                int latitude = getLatitude(Integer.parseInt(lineInfo[3]));
                 int height = getHeight(Integer.parseInt(lineInfo[4]));
                 Coordinates coordinates = new Coordinates(
                     longitude,
