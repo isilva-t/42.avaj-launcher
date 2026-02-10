@@ -34,6 +34,14 @@ public class Simulator {
         }
     }
 
+    private static int getPositive(int number) {
+        return number;
+    }
+
+    private static int getHeight(int number) {
+        return number;
+    }
+
     private static void loadData(String fileName) {
         try {
             File file = new File(fileName);
@@ -52,10 +60,13 @@ public class Simulator {
                 String[] lineInfo = line.split("\\s+");
                 String type = lineInfo[0];
                 String name = lineInfo[1];
+                int longitude = getPositive(Integer.parseInt(lineInfo[2]));
+                int latitude = getPositive(Integer.parseInt(lineInfo[3]));
+                int height = getHeight(Integer.parseInt(lineInfo[4]));
                 Coordinates coordinates = new Coordinates(
-                    Integer.parseInt(lineInfo[2]),
-                    Integer.parseInt(lineInfo[3]),
-                    Integer.parseInt(lineInfo[4])
+                    longitude,
+                    latitude,
+                    height
                 );
                 Flyable flyable = AircraftFactory.newAircraft(type, name, coordinates);
                 flyable.registerTower(weatherTower);
