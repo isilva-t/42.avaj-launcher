@@ -34,12 +34,13 @@ public class Simulator {
         }
     }
 
-    private static int getLongitude(int longitude) {
+    private static int getGeoCoord(String s_value) {
         try {
-            if (longitude < 1) {
+            int value = Integer.parseInt(s_value);
+            if (value < 1) {
                 throw new InvalidCoordinates("longitude");
             }
-            return longitude;
+            return value;
         } catch (InvalidCoordinates e) {
             System.out.println(e.getMessage());
             System.exit(1);
@@ -47,21 +48,9 @@ public class Simulator {
         return -1;
     } 
 
-    private static int getLatitude(int latitude) {
+    private static int getHeight(String s_height) {
         try {
-            if (latitude < 1) {
-                throw new InvalidCoordinates("latitude");
-            }
-            return latitude;
-        } catch (InvalidCoordinates e) {
-            System.out.println(e.getMessage());
-            System.exit(1);
-        }
-        return -1;
-    }
-
-    private static int getHeight(int height) {
-        try {
+            int height = Integer.parseInt(s_height);
             if (height > 100 || height < 0) {
                 throw new InvalidCoordinates("height");
             }
@@ -87,22 +76,28 @@ public class Simulator {
             simulationCycles = Integer.parseInt(br.readLine());
 
             weatherTower = new WeatherTower();
+
+            List<Flyable> flyables = new ArrayList<>();
+
             while((line = br.readLine()) != null) {
                 String[] lineInfo = line.split("\\s+");
                 String type = lineInfo[0];
                 String name = lineInfo[1];
-                int longitude = getLongitude(Integer.parseInt(lineInfo[2]));
-                int latitude = getLatitude(Integer.parseInt(lineInfo[3]));
-                int height = getHeight(Integer.parseInt(lineInfo[4]));
+                int longitude = getGeoCoord(lineInfo[2]);
+                int latitude = getGeoCoord(lineInfo[3]);
+                int height = getHeight(lineInfo[4]);
                 Coordinates coordinates = new Coordinates(
                     longitude,
                     latitude,
                     height
                 );
                 Flyable flyable = AircraftFactory.newAircraft(type, name, coordinates);
-                flyable.registerTower(weatherTower);
+                flyables.add(flyable);
             }
             br.close();
+            for (Flyable flyable : flyables) {
+                flyable.registerTower(weatherTower);
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.exit(1);
