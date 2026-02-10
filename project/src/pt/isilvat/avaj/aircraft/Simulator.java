@@ -2,7 +2,7 @@ package pt.isilvat.avaj.aircraft;
 
 import pt.isilvat.avaj.factory.AircraftFactory;
 import pt.isilvat.avaj.weather.WeatherTower;
-import pt.isilvat.avaj.printer.Printer;
+import pt.isilvat.avaj.tools.Printer;
 
 import java.util.List;
 import java.util.ArrayList;

@@ -3,7 +3,7 @@ package pt.isilvat.avaj.weather;
 import java.util.ArrayList;
 import java.util.List;
 import pt.isilvat.avaj.aircraft.Flyable;
-import pt.isilvat.avaj.printer.Printer;
+import pt.isilvat.avaj.tools.Printer;
 
 
 public class Tower {

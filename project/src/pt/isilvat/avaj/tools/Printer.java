@@ -1,4 +1,4 @@
-package pt.isilvat.avaj.printer;
+package pt.isilvat.avaj.tools;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
