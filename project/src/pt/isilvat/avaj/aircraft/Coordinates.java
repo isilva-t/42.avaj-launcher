@@ -29,7 +29,7 @@ public class Coordinates {
 
     public String getStringCoord() {
         String textCoordinates = 
-        " LON: " + longitude 
+        "LON: " + longitude 
         + ", LAT: " + latitude
         + ", H: " + height;
         return textCoordinates;

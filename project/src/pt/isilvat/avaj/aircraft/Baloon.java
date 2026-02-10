@@ -3,9 +3,9 @@ package pt.isilvat.avaj.aircraft;
 public class Baloon extends Aircraft {
 
     protected String rainMsg = "Our box it's floded!";
-    protected String fogMsg = "So much money to see nothing!";
-    protected String sunMsg = "Let's enjoy the day!";
-    protected String snowMsg = "Its SNOWing, we're going to die!";
+    protected String fogMsg = "So much money on this trip to see nothing!";
+    protected String sunMsg = "Let's enjoy this beautifull day!";
+    protected String snowMsg = "It's SNOWing, we're going to die!";
 
     public Baloon (
         long p_id,

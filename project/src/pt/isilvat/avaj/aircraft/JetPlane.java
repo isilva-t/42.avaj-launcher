@@ -5,7 +5,7 @@ public class JetPlane extends Aircraft {
     protected String rainMsg = "Fine, we need some washing!";
     protected String fogMsg = "Where are we going?";
     protected String sunMsg = "IIIIIhaaaaaaa!";
-    protected String snowMsg = "Keep the power man, we need warmed motors!";
+    protected String snowMsg = "Keep the power man, we need warm engines!";
 
     public JetPlane (
         long p_id,

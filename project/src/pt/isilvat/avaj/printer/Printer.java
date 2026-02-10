@@ -27,7 +27,8 @@ public class Printer {
     }
 
     private static void toConsole(String message, String coordinates) {
-        System.out.println(message + " " + coordinates);
+        String paddedCoords = String.format("%-28.28s", coordinates);
+        System.out.println(paddedCoords + " " + message);
     }
 
     private static void toFile(String message) {
