@@ -9,6 +9,10 @@ sub: all
 	java pt.isilvat.avaj.aircraft.Simulator scenario_subject.txt
 	$(MAKE) clean
 
+cycles: all
+	java pt.isilvat.avaj.aircraft.Simulator scenario_invalid_cycles.txt
+	$(MAKE) clean
+
 clean:
 	rm -f sources.txt
 	find . -name "*.class" -delete
