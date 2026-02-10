@@ -74,6 +74,9 @@ public class Simulator {
 
             String line;
             simulationCycles = Integer.parseInt(br.readLine());
+            if (simulationCycles < 0) {
+                throw new InvalidSimulationCycles();
+            }
 
             weatherTower = new WeatherTower();
 
