@@ -18,25 +18,30 @@ public class Baloon extends Aircraft {
             p_coordinates);
     }
 
+    @Override
     public void updateConditions() {
         super.updateConditions();
     }
 
+    @Override
     protected void weatherRain() {        
         super.changeCoordinates(0, 0, -5);
         super.printChildMessage(super.rainMsg + rainMsg);
     }
 
+    @Override
     protected void weatherFog() {        
         super.changeCoordinates(0, 0, -3);
         super.printChildMessage(super.fogMsg + fogMsg);
     }
 
+    @Override
     protected void weatherSun() {        
         super.changeCoordinates(2, 0, 4);
         super.printChildMessage(super.sunMsg + sunMsg);
     }
 
+    @Override
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -15);
         super.printChildMessage(super.snowMsg + snowMsg);

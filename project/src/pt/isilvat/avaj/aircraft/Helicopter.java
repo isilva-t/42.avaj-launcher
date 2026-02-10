@@ -18,25 +18,30 @@ public class Helicopter extends Aircraft {
             p_coordinates);
     }
 
+    @Override
     public void updateConditions() {
         super.updateConditions();
     }
 
+    @Override
     protected void weatherRain() {
         super.changeCoordinates(5, 0, 0);
         super.printChildMessage(super.rainMsg + rainMsg);
     }
 
+    @Override
     protected void weatherFog() {
         super.changeCoordinates(1, 0, 0);
         super.printChildMessage(super.fogMsg + fogMsg);
     }
 
+    @Override
     protected void weatherSun() {
         super.changeCoordinates(10, 0, 2);
         super.printChildMessage(super.sunMsg + sunMsg);
     }
 
+    @Override
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -12);
         super.printChildMessage(super.snowMsg + snowMsg);

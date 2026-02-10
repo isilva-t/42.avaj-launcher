@@ -18,25 +18,30 @@ public class JetPlane extends Aircraft {
             p_coordinates);
     }
 
+    @Override
     public void updateConditions() {
         super.updateConditions();
     }
 
+    @Override
     protected void weatherRain() {
         super.changeCoordinates(0, 5, 0);
         super.printChildMessage(super.rainMsg + rainMsg);
     }
 
+    @Override
     protected void weatherFog() {
         super.changeCoordinates(0, 1, 0);
         super.printChildMessage(super.fogMsg + fogMsg);
     }
 
+    @Override
     protected void weatherSun() {
         super.changeCoordinates(0, 10, 2);
         super.printChildMessage(super.sunMsg + sunMsg);
     }
 
+    @Override
     protected void weatherSnow() {
         super.changeCoordinates(0, 0, -7);
         super.printChildMessage(super.snowMsg + snowMsg);
