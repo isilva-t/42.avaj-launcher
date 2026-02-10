@@ -2,6 +2,8 @@ package pt.isilvat.avaj.factory;
 
 import pt.isilvat.avaj.aircraft.*;
 
+import pt.isilvat.avaj.exceptions.InvalidAircraftType;
+
 public class AircraftFactory {
 
     private static final AircraftFactory instance = new AircraftFactory();
@@ -34,7 +36,7 @@ public class AircraftFactory {
                 case "JetPlane": 
                     return new JetPlane(++this.id, p_name, p_coordinates);
                 default:
-                    throw new Exception("wrong type of aircraft!");
+                    throw new InvalidAircraftType(p_type);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
