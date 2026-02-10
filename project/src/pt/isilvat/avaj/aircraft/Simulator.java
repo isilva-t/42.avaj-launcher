@@ -78,10 +78,7 @@ public class Simulator {
                 throw new InvalidSimulationCycles();
             }
 
-            weatherTower = new WeatherTower();
-
             List<Flyable> flyables = new ArrayList<>();
-
             while((line = br.readLine()) != null) {
                 String[] lineInfo = line.split("\\s+");
                 String type = lineInfo[0];
@@ -107,7 +104,12 @@ public class Simulator {
         return new ArrayList<>();
     }
 
-    private static void runSimulation() {
+    private static void runSimulation(List<Flyable> flyables) {
+        weatherTower = new WeatherTower();
+        Printer.powerOn();
+        for (Flyable flyable : flyables) {
+                flyable.registerTower(weatherTower);
+        }
         for (; simulationCycles > 0; simulationCycles--) {
             weatherTower.changeWeather();
         }
@@ -120,14 +122,8 @@ public class Simulator {
                 throw new InvalidNumberOfArguments();
             }
             validateFIleExtension(args[0]);
-
             List<Flyable> flyables = getFlyables(args[0]);
-            Printer.powerOn();
-            for (Flyable flyable : flyables) {
-                flyable.registerTower(weatherTower);
-            }
-
-            runSimulation();
+            runSimulation(flyables);
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
