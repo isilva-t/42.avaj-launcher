@@ -7,6 +7,6 @@ public class InvalidAircraftType extends Exception {
     }
 
     public InvalidAircraftType(String invalidAircraft) {
-        super("Invalid Aircraft Type" + invalidAircraft);
+        super("Invalid Aircraft Type: " + invalidAircraft);
     }
 }
