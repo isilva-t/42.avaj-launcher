@@ -20,8 +20,8 @@ public class Printer {
 
     public static void print(String message, String coordinates) {
 
-        toConsole(message, coordinates);
-        toFile(message);
+        //toConsole(message, coordinates);
+        toFile(message, coordinates);
     }
 
     private static void toConsole(String message, String coordinates) {
@@ -29,14 +29,14 @@ public class Printer {
         System.out.println(paddedCoords + " " + message);
     }
 
-    private static void toFile(String message) {
+    private static void toFile(String message, String coordinates) {
         try {
+            String paddedMessage = String.format("%-75.75s", message);
             FileOutputStream outputFile = new FileOutputStream(fileName, true);
-            outputFile.write((message + "\n").getBytes());
+            outputFile.write((paddedMessage + coordinates + "\n").getBytes());
         } catch (Exception e) {
            System.out.println(e.getMessage());
            System.exit(1); 
         }
-        
     }
 }
