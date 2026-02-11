@@ -3,6 +3,7 @@ package pt.isilvat.avaj.aircraft;
 import pt.isilvat.avaj.aircraft.Flyable;
 import pt.isilvat.avaj.weather.WeatherTower;
 import pt.isilvat.avaj.tools.Printer;
+import pt.isilvat.avaj.exceptions.InvalidWeather;
 
 public class Aircraft extends Flyable {
 
@@ -44,7 +45,7 @@ public class Aircraft extends Flyable {
                     this.weatherSnow();
                     break;
                 default:
-                    throw new Exception("Invalid weather.");
+                    throw new InvalidWeather();
             }
             checkHeight(landing);
         } catch (Exception e) {
