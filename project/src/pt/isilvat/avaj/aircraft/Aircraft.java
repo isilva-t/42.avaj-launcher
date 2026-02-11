@@ -46,11 +46,23 @@ public class Aircraft extends Flyable {
                 default:
                     throw new Exception("Invalid weather.");
             }
-            checkHeight();
+            checkHeight(landing);
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            System.exit(1);
         }
     };
+
+    protected void checkHeight(String whatIsDoing) {
+        if (coordinates.getHeight() <= 0) {
+            Printer.print(
+                this.getFullName()
+                + whatIsDoing,
+                coordinates.getStringCoord()
+                );
+            this.unregisterTower();
+        }
+    }
 
     public String getFullName() {
         String className = this.getClass().getSimpleName();
@@ -69,17 +81,7 @@ public class Aircraft extends Flyable {
         return height;
     }
 
-    private void checkHeight() {
-        if (coordinates.getHeight() <= 0) {
-            String className = this.getClass().getSimpleName();
-            Printer.print(
-                this.getFullName()
-                + " landing.",
-                coordinates.getStringCoord()
-                );
-            this.unregisterTower();
-        }
-    }
+
 
     protected void changeCoordinates(
         int p_longitude,

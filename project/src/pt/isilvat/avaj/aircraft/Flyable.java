@@ -5,6 +5,8 @@ import pt.isilvat.avaj.weather.WeatherTower;
 public abstract class Flyable {
 
     protected WeatherTower weatherTower = null;
+    protected String onLand = " is on land.";
+    protected String landing = " landing.";
 
     Flyable () {
 
@@ -18,6 +20,7 @@ public abstract class Flyable {
         }
         this.weatherTower = p_tower;
         weatherTower.register(this);
+        checkHeight(onLand);
     }
 
     protected void unregisterTower() {
@@ -28,5 +31,6 @@ public abstract class Flyable {
     }
 
     public abstract String getFullName();
+    protected abstract void checkHeight(String whatIsDoing);
 }
 
