@@ -6,6 +6,7 @@ YELLOW='\033[1;33m'
 NC='\033[0m'
 WITHOUT="without_permission.txt"
 TESTDIR="./tests/"
+SIMULATION="simulation.txt"
 
 make
 echo "=========================================="
@@ -78,9 +79,11 @@ java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"07_height_above_100.txt"
 
 echo -e "\n${YELLOW}Test: Height 0${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"08_height_zero.txt"
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: Height 100${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"09_height_100.txt"
+cat $SIMULATION
 
 echo ""
 echo "=========================================="
@@ -89,23 +92,28 @@ echo "=========================================="
 
 echo -e "\n${YELLOW}Test: Baloon Rain/Snow 0${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"11_baloon_height.txt"
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: Baloon above 100${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"12_baloon_height_2.txt"
-
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: JetPlane Rain/Snow 0${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"13_jetplane_height.txt"
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: JetPlane above 100${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"14_jetplane_height_2.txt"
+cat $SIMULATION
 
 
 echo -e "\n${YELLOW}Test: Helicopter Rain/Snow 0${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"15_helicopter_height.txt"
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: Helicopter above 100${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"16_helicopter_height_2.txt"
+cat $SIMULATION
 
 echo ""
 echo "=========================================="
@@ -114,10 +122,12 @@ echo "=========================================="
 
 echo -e "\n${YELLOW}Test: Another one${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"21_scenario.txt"
+cat $SIMULATION
 
 echo -e "\n${YELLOW}Test: Another one${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"22_scenario.txt"
+cat $SIMULATION
 
 echo ""
-rm simulation.txt
+rm $SIMULATION
 make clean
