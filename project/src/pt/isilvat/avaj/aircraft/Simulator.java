@@ -30,15 +30,18 @@ public class Simulator {
             BufferedReader br = new BufferedReader(
                 new FileReader(file));
 
-            String line;
-            simulationCycles = Integer.parseInt(br.readLine());
+            String line = br.readLine();
+            if (line == null) {
+                throw new InvalidScenarioFile();
+            }
+            simulationCycles = Integer.parseInt(line.trim());
             if (simulationCycles < 0) {
                 throw new InvalidSimulationCycles();
             }
 
             List<Flyable> flyables = new ArrayList<>();
             while((line = br.readLine()) != null) {
-                String[] lineInfo = line.split("\\s+");
+                String[] lineInfo = line.trim().split("\\s+");
                 String type = lineInfo[0];
                 String name = lineInfo[1];
                 int longitude = Validator.getGeoCoord(lineInfo[2]);
