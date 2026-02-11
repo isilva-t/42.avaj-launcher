@@ -84,7 +84,7 @@ java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"09_height_100.txt"
 
 echo ""
 echo "=========================================="
-echo "Testing Simulation Behaviour"
+echo "Testing Simulation Height Boundaries"
 echo "=========================================="
 
 echo -e "\n${YELLOW}Test: Baloon Rain/Snow 0${NC}"
@@ -106,6 +106,17 @@ java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"15_helicopter_height.txt"
 
 echo -e "\n${YELLOW}Test: Helicopter above 100${NC}"
 java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"16_helicopter_height_2.txt"
+
+echo ""
+echo "=========================================="
+echo "Testing normal simulations"
+echo "=========================================="
+
+echo -e "\n${YELLOW}Test: Another one${NC}"
+java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"21_scenario.txt"
+
+echo -e "\n${YELLOW}Test: Another one${NC}"
+java pt.isilvat.avaj.aircraft.Simulator $TESTDIR"22_scenario.txt"
 
 echo ""
 rm simulation.txt
