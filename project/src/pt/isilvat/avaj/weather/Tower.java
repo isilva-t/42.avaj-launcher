@@ -13,7 +13,11 @@ public class Tower {
 
     private List<Flyable> observers = new ArrayList<>();
     private final String name = "Tower says:";
-    private final String className = this.getClass().getSimpleName();
+    private final String className = this.getClass()
+                                .getSimpleName()
+                                .replaceAll("([A-Z])", " $1")
+                                .trim()
+                                .toLowerCase();
 
     protected void conditionChanged() {
 
