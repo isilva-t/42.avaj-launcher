@@ -1,27 +1,21 @@
+TESTDIR="./tests/"
+
 all:
 	find pt -name "*.java" > sources.txt
 	javac @sources.txt
 
 run:
-	java pt.isilvat.avaj.aircraft.Simulator scenario.txt
-
-sub: all
-	java pt.isilvat.avaj.aircraft.Simulator scenario_subject.txt
-	$(MAKE) clean
-
-cycles: all
-	java pt.isilvat.avaj.aircraft.Simulator scenario_invalid_cycles.txt
-	$(MAKE) clean
+	java pt.isilvat.avaj.aircraft.Simulator $(TESTDIR)scenario.txt
+	cat simulation.txt
 
 clean:
 	rm -f sources.txt
 	find . -name "*.class" -delete
 
+fclean:
+	rm simulation.txt
+
 q:	all run clean
 
 t: all
 	./tester.sh 
-	$(MAKE) clean
-
-r:
-	rm simulation.txt
