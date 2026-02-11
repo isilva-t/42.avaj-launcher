@@ -35,7 +35,7 @@ classDiagram
         <<abstract>>
         # WeatherTower weatherTower
         + abstract void updateConditions()
-        + void registerTower()
+        + void registerTower(WeatherTower p_tower)
 
         # void unregisterTower()
     }
@@ -48,8 +48,8 @@ classDiagram
         # Aircraft(long p_id, String p_name, Coordinates p_coordinates)
         + String getFullName()
 
-        - void checkHeight()
-        - int getNormalizedHeight()
+        - void checkHeight(String whatIsDoing)
+        - int getNormalizedHeight(int height)
 
         # void changeCoordinates(int p_longitude, int p_latitude, int p_height)
         # void printChildMessage(String message)
@@ -74,17 +74,17 @@ classDiagram
 
     class WeatherProvider {
         <<singleton>>
-        - string[] weather
-        + string getCurrentWeather(Coordinates p_coordinates)
+        - String[] weather
+        + String getCurrentWeather(Coordinates p_coordinates)
     }
 
     class WeatherTower {
-        + srting getWeather(Coordinates p_coordinates)
+        + String getWeather(Coordinates p_coordinates)
         + void changeWeather()
     }
 
     class Baloon {
-        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + Baloon(long p_id, String p_name, Coordinates p_coordinates)
         + void updateConditions()
 
         # void weatherRain()
@@ -93,7 +93,7 @@ classDiagram
         # void weatherSnow()    
     }
     class Helicopter {
-        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + Helicopter(long p_id, String p_name, Coordinates p_coordinates)
         + void updateConditions()
 
         # void weatherRain()
@@ -102,7 +102,7 @@ classDiagram
         # void weatherSnow()    
     }
     class JetPlane {
-        + Baloon(long p_id, string p_name, Coordinates p_coordinates)
+        + JetPlane(long p_id, String p_name, Coordinates p_coordinates)
         + void updateConditions()
 
         # void weatherRain()
@@ -113,14 +113,28 @@ classDiagram
 
     class AircraftFactory {
         <<singleton>>
-        + Flyable newAircraft(string p_type, string p_name, Coordinates p_coordinates)
+        + Flyable newAircraft(String p_type, String p_name, Coordinates p_coordinates)
     }
 
     class Printer {
         <<utility>>
-        + print(String message, String coordinates)
-        - toConsole(String message, String coordinates)
-        - toFile(String message)
+        + static void print(String message, String coordinates)
+        - static void toConsole(String message, String coordinates)
+        - static void toFile(String message, String coordinates)
+    }
+    
+    class Validator {
+        + static void validateFileExtension(String fileName)
+        + static int getGeoCoord(String s_value)
+        + static int getHeight(String s_height)
+    }
+
+    class Simulator {
+        - WeatherTower weatherTower
+        - int simulationCycles
+        - List<Flyable> getFlyables(String fileName)
+        - void runSimulation(List<Flyable> flyables)
+        + static void main(String[] args)
     }
 
     Flyable <|.. Aircraft
@@ -135,6 +149,11 @@ classDiagram
 
     Tower ..> Printer : uses
     Aircraft ..> Printer : uses
+    Simulator ..> Validator : uses
+    Simulator ..> AircraftFactory : uses
+    WeatherTower ..> WeatherProvider : uses
+
+    Simulator o-- WeatherTower
     
 ```
 
