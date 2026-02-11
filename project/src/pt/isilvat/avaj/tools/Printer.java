@@ -17,9 +17,6 @@ public class Printer {
         }
     }
 
-    public static void powerOff() {
-
-    }
 
     public static void print(String message, String coordinates) {
 
@@ -37,7 +34,8 @@ public class Printer {
             FileOutputStream outputFile = new FileOutputStream(fileName, true);
             outputFile.write((message + "\n").getBytes());
         } catch (Exception e) {
-
+           System.out.println(e.getMessage());
+           System.exit(1); 
         }
         
     }
