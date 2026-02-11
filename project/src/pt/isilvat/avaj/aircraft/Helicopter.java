@@ -5,7 +5,7 @@ public class Helicopter extends Aircraft {
     protected String rainMsg = "So much water out there?";
     protected String fogMsg = "It's outside, not our windows messed up!";
     protected String sunMsg = "Yay, enjoy the ride!";
-    protected String snowMsg = "Maintain the power, the engine cannot cool down!";
+    protected String snowMsg = "Maintain the power, we can't cool down!";
 
     public Helicopter (
         long p_id,
