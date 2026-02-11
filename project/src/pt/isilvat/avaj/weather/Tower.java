@@ -12,7 +12,7 @@ public class Tower {
     }
 
     private List<Flyable> observers = new ArrayList<>();
-    private final String name = "Tower Says:";
+    private final String name = "Tower says:";
     private final String className = this.getClass().getSimpleName();
 
     protected void conditionChanged() {
