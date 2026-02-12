@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant S as Simulator
+    participant V as Validator
+    participant C as Coordinates
+    participant AF as AircraftFactory
+    participant A as Aircraft<br/>(Helicopter/JetPlane/Balloon)
+    participant WT as WeatherTower
+    participant T as Tower
+
+
+    Note over S,A: INITIALIZATION AND AIRCRAFT CREATION
+    S->>S: Read scenario file
+    S->>S: Validate simulationCycles
+    loop For each aircraft line in file
+        S->>V: Validate Coords and Height
+        S->>C: new Coordinates(longitude, latitude, height)
+        S->>AF: newAircraft(type, name, coordinates)
+        AF->>A: Create new Aircraft<br/>(assigns unique ID)
+        AF-->>S: Return Flyable aircraft
+
+    end
+
+    Note over S,T: BEFORE START SIMULATION
+    S->>WT: Create WeatherTower instance
+    loop For each flyable created
+        S->>A: registerTower(weatherTower)
+        A->>T: register(this)
+        T->>T: Add to observers list
+        T->>T: Log "Aircraft registered"
+    end

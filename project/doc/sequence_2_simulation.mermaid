@@ -1,0 +1,31 @@
+sequenceDiagram
+    participant S as Simulator
+    participant A as Aircraft<br/>(Helicopter/JetPlane/Baloon)
+    participant WT as WeatherTower
+    participant T as Tower
+    participant WP as WeatherProvider<br/>(Singleton)
+
+
+
+    Note over S,WP: SIMULATION PHASE
+    loop For number of simulationCycles
+        S->>WT: changeWeather()
+        WT->>T: conditionChanged()
+        
+        loop For each registered aircraft
+            T->>A: updateConditions()
+            A->>WT: getWeather(coordinates)
+            WT->>WP: getCurrentWeather(coordinates)
+            WP->>WP: Generate weather based<br/>on coordinates
+            WP-->>WT: Return weather (SUN/RAIN/FOG/SNOW)
+            WT-->>A: Return weather
+            
+            A->>A: Update coordinates<br/>based on weather <br/> and Log weather message
+            
+            alt Height reaches 0 or below
+                A->>A: Log "landing" message
+                A->>T: unregister(this)
+                T->>T: Remove from observers <br/> and Log "Aircraft unregistered"
+            end
+        end
+    end
