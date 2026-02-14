@@ -48,7 +48,7 @@ The scenario file defines the simulation parameters and initial aircraft fleet.
 6
 Baloon B1 25 4 10
 JetPlane J1 23 44 13
-Helicopter H1 654 33 1225
+Helicopter H1 654 33 12
 ```
 
 ### Format Rules
