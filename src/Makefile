@@ -17,5 +17,5 @@ fclean:
 
 q:	all run clean
 
-t: all
+test: all
 	./tester.sh 
