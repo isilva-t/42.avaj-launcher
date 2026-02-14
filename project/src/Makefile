@@ -5,7 +5,7 @@ all:
 	javac @sources.txt
 
 run:
-	java pt.isilvat.avaj.aircraft.Simulator $(TESTDIR)scenario.txt
+	java pt.isilvat.avaj.aircraft.Simulator scenario.txt
 	cat simulation.txt
 
 clean:
