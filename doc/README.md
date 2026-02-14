@@ -2,7 +2,7 @@
 
 A Java aircraft weather simulation program implementing core OOP design patterns (Observer, Singleton, Factory).
 
-![airport](project/doc/avaj.jpg)
+![airport](doc/avaj.jpg)
 
 ## About
 
@@ -25,14 +25,10 @@ As a 42 Project, the learning purposes and objectives of this project are:
 
 ## Usage Instructions
 
-Compile:
-```
-make
-```
+Compile and run with scenario.txt
 
-run with scenario.txt:
-```
-make run
+```bash
+make && make run
 ```
 
 ## Scenario File Format
@@ -92,7 +88,7 @@ Note: Due to the inconsistency in the 42 subject, the word "Baloon" is intention
 
 ## Example Output
 
-```
+```bash
 make run
 java pt.isilvat.avaj.aircraft.Simulator scenario.txt
 cat simulation.txt
@@ -117,6 +113,17 @@ Tower says: JetPlane#J1(2) unregistered from weather tower
 Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 37, LAT: 4, H: 34
 ```
 
+## Testing
+Test scenarios are in `src/tests/`:
+- Edge cases (height limits, invalid input)
+- Aircraft behavior verification
+- Landing scenarios
+
+Run tests:
+```bash
+make test
+```
+
 ## Initialization Phase
 
 INITIALIZATION_HERE
@@ -131,7 +138,38 @@ MERMAID_HERE
 
 ## Project Structure
 
-// TODO
+```
+42.avaj-launcher/
+├── README.md
+├── scenario.txt
+├── doc/
+│   ├── avaj.jpg
+│   ├── *.mermaid          # UML diagrams
+│   └── private/*           # Encrypted files
+└── src/
+    ├── Makefile
+    ├── scenario.txt
+    └── pt/isilvat/avaj/
+        ├── aircraft/
+        │   ├── Simulator.java      # Main entry point
+        │   ├── Aircraft.java
+        │   ├── Flyable.java        # Abstract
+        │   ├── Coordinates.java
+        │   ├── Helicopter.java
+        │   ├── JetPlane.java
+        │   └── Baloon.java
+        ├── weather/
+        │   ├── Tower.java
+        │   ├── WeatherTower.java
+        │   └── WeatherProvider.java # Singleton
+        ├── factory/
+        │   └── AircraftFactory.java # Singleton
+        ├── tools/
+        │   ├── Validator.java
+        │   └── Printer.java
+        └── exceptions/
+            ├── *.java
+```
 
 ## Requirements
 
