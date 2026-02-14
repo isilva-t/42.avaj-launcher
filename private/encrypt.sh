@@ -9,14 +9,14 @@ echo "Enter encryption password:"
 read -s PASSWORD
 
 # Create private folder if doesn't exist
-mkdir -p private
+mkdir -p enc
 
 # Encrypt each file in toencrypt/
-for file in *; do
+for file in data/*; do
     if [ -f "$file" ]; then
         filename=$(basename "$file")
         echo "Encrypting: $filename"
-        echo "$PASSWORD" | openssl enc -aes-256-cbc -salt -in "$file" -out "${filename}.enc" -pbkdf2 -pass stdin
+        echo "$PASSWORD" | openssl enc -aes-256-cbc -salt -in "$file" -out "enc/${filename}.enc" -pbkdf2 -pass stdin
         echo -e "${GREEN}✓ Created: ${filename}.enc${NC}"
     fi
 done
