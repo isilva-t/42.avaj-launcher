@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOC_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECT_ROOT="$(cd "$DOC_DIR/../.." && pwd)"
+PROJECT_ROOT="$(cd "$DOC_DIR/.." && pwd)"
 TEMPLATE="$DOC_DIR/README.md"
 MERMAID="$DOC_DIR/develop.mermaid"
 INIT="$DOC_DIR/sequence_1_init.mermaid"
