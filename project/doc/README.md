@@ -1,7 +1,5 @@
 # 42 Avaj Launcher
 
-**Status:** 🚧 In Development
-
 A Java aircraft weather simulation program implementing core OOP design patterns (Observer, Singleton, Factory).
 
 ![airport](project/doc/avaj.jpg)
@@ -27,7 +25,15 @@ As a 42 Project, the learning purposes and objectives of this project are:
 
 ## Usage Instructions
 
-// TODO
+Compile:
+```
+make
+```
+
+run with scenario.txt:
+```
+make run
+```
 
 ## Scenario File Format
 
@@ -43,10 +49,10 @@ The scenario file defines the simulation parameters and initial aircraft fleet.
 
 ### Example
 ```
-25
-Baloon B1 2 3 20
-JetPlane J1 23 44 32
-Helicopter H1 654 33 20
+6
+Baloon B1 25 4 10
+JetPlane J1 23 44 13
+Helicopter H1 654 33 1225
 ```
 
 ### Format Rules
@@ -86,7 +92,30 @@ Note: Due to the inconsistency in the 42 subject, the word "Baloon" is intention
 
 ## Example Output
 
-// TODO
+```
+make run
+java pt.isilvat.avaj.aircraft.Simulator scenario.txt
+cat simulation.txt
+Tower says: Baloon#B1(1) registered to weather tower                       
+Tower says: JetPlane#J1(2) registered to weather tower                     
+Tower says: Helicopter#H1(3) registered to weather tower                   
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 27, LAT: 4, H: 14
+JetPlane#J1(2) FOG 🌫️  Where are we going?                                LON: 23, LAT: 45, H: 13
+Helicopter#H1(3) SNOW ❄️  Maintain the power, we can't cool down!          LON: 654, LAT: 33, H: 0
+Helicopter#H1(3) landing.                                                  LON: 654, LAT: 33, H: 0
+Tower says: Helicopter#H1(3) unregistered from weather tower               
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 29, LAT: 4, H: 18
+JetPlane#J1(2) RAIN ☔  Fine, we need some washing!                         LON: 23, LAT: 50, H: 13
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 31, LAT: 4, H: 22
+JetPlane#J1(2) SNOW ❄️  Keep the power man, we need warm engines!          LON: 23, LAT: 50, H: 6
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 33, LAT: 4, H: 26
+JetPlane#J1(2) RAIN ☔  Fine, we need some washing!                         LON: 23, LAT: 55, H: 6
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 35, LAT: 4, H: 30
+JetPlane#J1(2) SNOW ❄️  Keep the power man, we need warm engines!          LON: 23, LAT: 55, H: 0
+JetPlane#J1(2) landing.                                                    LON: 23, LAT: 55, H: 0
+Tower says: JetPlane#J1(2) unregistered from weather tower                 
+Baloon#B1(1) SUN ☀️  Let's enjoy this beautifull day!                      LON: 37, LAT: 4, H: 34
+```
 
 ## Initialization Phase
 
